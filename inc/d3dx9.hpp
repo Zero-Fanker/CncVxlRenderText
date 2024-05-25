@@ -3,6 +3,7 @@
 // So we manually define it here
 // THIS FILE SHOULD NEVER BE INCLUDED IN ANY OTHER FILES THAN DEFINITIONS.H
 
+#if !defined(DIRECT3D_VERSION)
 typedef struct _D3DMATRIX {
 	union {
 		struct {
@@ -615,3 +616,4 @@ double operator*(d3dvector& left, d3dvector&& right);/*
 {
 	return D3DXVec3Dot(&left, &right);
 }*/
+#endif

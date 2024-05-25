@@ -1,4 +1,6 @@
 #include <vxlapi.h>
+#include <vxlfile.h>
+#include <vplfile.h>
 
 extern "C"
 {

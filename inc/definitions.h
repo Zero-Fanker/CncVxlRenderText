@@ -17,23 +17,11 @@
 #include <cassert>
 #include <cstring>
 #include <cmath>
-
+#include "macro.h"
 
 // Ensure sizeof(float_t) = 4
 using float32_t = float;
 static_assert(sizeof(float32_t) == 4, "This program can be only compiled under current architecture!");
-
-#ifndef WINAPI
-
-#ifdef _MSC_VER
-	#define WINAPI __stdcall
-#endif
-
-#ifdef __GNUC__ 
-	#define WINAPI __attribute__((__stdcall__))
-#endif
-
-#endif
 
 using byte = uint8_t;
 

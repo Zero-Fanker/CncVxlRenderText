@@ -1,36 +1,38 @@
 #pragma once
 
-#include <vxlfile.h>
-#include <vplfile.h>
+#include <macro.h>
 
-#define EXPORT __declspec(dllexport)
+namespace thomas {
+	class vxlfile;
+	class vplfile;
+}
 
 extern "C" 
 {
 	extern thomas::vxlfile* CncImgCurrentVXL;
 	extern thomas::vplfile* CncImgCurrentVPL;
 
-	EXPORT void* WINAPI CncImgMalloc(unsigned int sz);
-	EXPORT void WINAPI CncImgFree(void* ptr);
+	VX_LIB_EXPORT void* WINAPI CncImgMalloc(unsigned int sz);
+	VX_LIB_EXPORT void WINAPI CncImgFree(void* ptr);
 
-	EXPORT void WINAPI CncImgCreate();
-	EXPORT void WINAPI CncImgRelease();
+	VX_LIB_EXPORT void WINAPI CncImgCreate();
+	VX_LIB_EXPORT void WINAPI CncImgRelease();
 
-	EXPORT void WINAPI CncImgSetMaxFacing(unsigned int nFacingCount);
-	EXPORT unsigned int WINAPI CncImgGetMaxFacing();
+	VX_LIB_EXPORT void WINAPI CncImgSetMaxFacing(unsigned int nFacingCount);
+	VX_LIB_EXPORT unsigned int WINAPI CncImgGetMaxFacing();
 
-	EXPORT bool WINAPI CncImgLoadVPLFile(const unsigned char* pBuffer);
-	EXPORT bool WINAPI CncImgLoadVXLFile(const unsigned char* pBuffer);
-	EXPORT bool WINAPI CncImgLoadHVAFile(const unsigned char* pBuffer);
+	VX_LIB_EXPORT bool WINAPI CncImgLoadVPLFile(const unsigned char* pBuffer);
+	VX_LIB_EXPORT bool WINAPI CncImgLoadVXLFile(const unsigned char* pBuffer);
+	VX_LIB_EXPORT bool WINAPI CncImgLoadHVAFile(const unsigned char* pBuffer);
 
-	EXPORT bool WINAPI CncImgPrepareVXLCache(unsigned int nFacing, int F, int L, int H);
-	EXPORT int WINAPI CncImgGetImageWidth(unsigned int nFacing);
-	EXPORT int WINAPI CncImgGetImageHeight(unsigned int nFacing);
-	EXPORT void WINAPI CncImgGetImageFrame(unsigned int nFacing, int* width, int* height, int* x, int* y);
-	EXPORT void WINAPI CncImgGetImageSize(unsigned int nFacing, int* width, int* height);
-	EXPORT bool WINAPI CncImgGetImageData(unsigned int nFacing, unsigned char** ppBuffer);
+	VX_LIB_EXPORT bool WINAPI CncImgPrepareVXLCache(unsigned int nFacing, int F, int L, int H);
+	VX_LIB_EXPORT int WINAPI CncImgGetImageWidth(unsigned int nFacing);
+	VX_LIB_EXPORT int WINAPI CncImgGetImageHeight(unsigned int nFacing);
+	VX_LIB_EXPORT void WINAPI CncImgGetImageFrame(unsigned int nFacing, int* width, int* height, int* x, int* y);
+	VX_LIB_EXPORT void WINAPI CncImgGetImageSize(unsigned int nFacing, int* width, int* height);
+	VX_LIB_EXPORT bool WINAPI CncImgGetImageData(unsigned int nFacing, unsigned char** ppBuffer);
 
-	EXPORT void WINAPI CncImgClearCurrentVXL();
-	EXPORT bool WINAPI CncImgIsVXLLoaded();
-	EXPORT bool WINAPI CncImgIsVPLLoaded();
+	VX_LIB_EXPORT void WINAPI CncImgClearCurrentVXL();
+	VX_LIB_EXPORT bool WINAPI CncImgIsVXLLoaded();
+	VX_LIB_EXPORT bool WINAPI CncImgIsVPLLoaded();
 }
